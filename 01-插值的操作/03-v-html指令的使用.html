@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-html</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <h2>{{url}}</h2>
+<!--  以这种形式写的可以将代码直接转为html标签-->
+  <h2 v-html="url"></h2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      url:'<a href="http://www.apple.com">Apple</a>'
+    }
+  })
+</script>
+</body>
+</html>

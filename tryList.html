@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE List</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="items in movies">{{items}}</li>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                message:'hello',
+                movies:['Interstellar','Forest Gump','Avengers','God Father']
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind</title>
+</head>
+<body>
+<div id="app">
+  <!--  这种做法是不行的，因为mustache语法只能在标签内容起作用，在属性等地方只会显示字符串-->
+  <!--  <img src="{{imgURL}}" alt="">-->
+  <!--  正确做法：v-bind指令-->
+<!--  <img v-bind:src="imgURL" alt="">-->
+<!--  <a v-bind:href="aHref">apple</a>-->
+<!--  可以使用语法糖——一个双引号表示:-->
+  <img :src="imgURL" alt="">
+  <a :href="aHref">apple</a>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      imgURL:"https://img10.360buyimg.com/mobilecms/s255x255_jfs/t4567/309/3198737583/201364/a5c0bc90/58f8527dNfd5a5fb8.jpg!cc_255x255.webp",
+      aHref:'http://www.google.com',
+    }
+  })
+</script>
+</body>
+</html>
