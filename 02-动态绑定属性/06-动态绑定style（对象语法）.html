@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>style</title>
+</head>
+<body>
+<div id="app">
+<!--  <h2 :style="{key（css属性名）:value（css属性值）}">{{message}}</h2>-->
+<!--  如果直接在这里定死style属性值，那么就要加引号，否则识别为变量，属性名就不需要，因为是对象的key-->
+<!--  <h2 :style="{'font-size':'50px'}">{{message}}</h2>-->
+<!--  如果是变量则不需要引号，而且value的值必须和普通style一样有单位，如果无则需要拼接-->
+<!--  <h2 :style="{'font-size':finalSize}">{{message}}</h2>-->
+<!--  <h2 :style="{'font-size':finalSize + 'px'}">{{message}}</h2>-->
+
+<!-- 如果这里太长，则可以使用methods-->
+<!--  <h2 :style="{'font-size':finalSize + 'px','color':finalColor}">{{message}}</h2>-->
+  <h2 :style="getStyle()">{{message}}</h2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      finalSize:'100',
+      finalColor:'red',
+    },
+    methods:{
+      getStyle:function () {
+        return {'font-size':this.finalSize + 'px','color':this.finalColor}
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{firstName + ' ' + lastName}}</h2>
+  <h2>{{firstName}}   {{lastName}}</h2>
+
+<!--  避免太长，使用方法，但是容易引起歧义——————>{{}}里放变量和方法-->
+  <h2>{{getFullName()}}</h2>
+
+<!--  进而使用计算属性方法，与methods区别在于computed接近静态，名词属性类方法 ，而且computed不需要在后面加小括号，更接近属性 -->
+  <h2>{{fullName}}</h2>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      firstName: 'Lebron',
+      lastName:'James'
+    },
+    methods:{
+      getFullName:function () {
+        return this.firstName + ' ' + this.lastName;
+      }
+    },
+    //进而使用计算属性方法，与methods区别在于computed接近静态，名词属性类方法
+    computed:{
+      fullName : function () {
+        return this.firstName + ' ' + this.lastName;
+      }
+    //  与methods的最大区别在于，只要computed里的变量没有改变，无论调用多少次，就始终引用最初使用的computed中的属性，
+    //  而methods是只要有调用里面的方法就重新运行，渲染。一定程度计算属性的能效更高（前提是尽量对属性，内容使用computed）
+    }
+  })
+</script>
+</body>
+</html>

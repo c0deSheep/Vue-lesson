@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind:class</title>
+  <style>
+    .active {
+      color:red;
+    }
+    .line {
+      text-decoration: underline;
+    }
+    .common {
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+<!--  <h2 class="active">{{message}}</h2>-->
+<!--  <h2 :class="active">{{message}}</h2>-->
+
+<!--  此时的class是一个数组，通过数组形式来选此类，但是是固定的-->
+<!--  <h2 v-bind:class="[active,line]">{{message}}</h2>-->
+  <h2 v-bind:class="getClasses()">{{message}}</h2>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      active:'active',
+      line:'line',
+    },
+    methods:{
+      getClasses:function () {
+        return[this.active, this.line];
+      }
+    }
+  })
+</script>
+</body>
+</html>

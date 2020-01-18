@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  切记，computed是计算属性，接近属性设定，所以不需要加()，区别于methods-->
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      firstName:'YoYoung',
+      lastName:'Cheung'
+    },
+    computed: {
+    //  计算属性一般是没有set方法的，只读属性get
+    //  但也可以设定可以通过set来改变显示的内容
+      fullName: {
+        set: function (newValue) {
+          const name = newValue.split(' ');
+          this.firstName = name[0];
+          this.lastName = name[1];
+        },
+        get:function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>clickChange</title>
+  <style>
+    li {
+      height: 20px;
+      width: 150px;
+    }
+    .act {
+      color:red;
+    }
+
+    .poi {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+<!--      v-on:click="changClass(index) 点击事件让遍历到的索引传入方法-->
+<!--      :class="{act:index === nIndex}" 是通过判断key:value中的value是否为true让index索引拥有act这个类-->
+<!--      v-for="(items,index) in movies"遍历的固定格式，items在前，索引index在后-->
+      <li v-for="(items,index) in movies" v-on:click="changClass(index)" class="poi" :class="{act:nIndex === index}">{{index}} - {{items}}</li>
+    </ul>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue ({
+      el:'#app',
+      data:{
+        message:'Hello',
+        movies:['interstellar','Wall-E','Batman','Forest Gump'],
+        //初始化0，让第一个li的类为act
+        nIndex:0
+      },
+      //这个方法是让索引替换为列表索引
+      methods:{
+        changClass:function (index) {
+          this.nIndex = index;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

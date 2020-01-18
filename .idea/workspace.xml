@@ -14,8 +14,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1WU6G4SJbhoCqBEXKe0BQlDzDxl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -25,11 +30,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/01-插值的操作" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/02-动态绑定属性" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\Web\Vue\Section1\02-动态绑定属性" />
       <recent name="J:\Web\Vue\Section1\01-插值的操作" />
       <recent name="J:\Web\Vue\Section1\js" />
     </key>
@@ -58,6 +64,7 @@
       <updated>1579191726496</updated>
       <workItem from="1579191728546" duration="1546000" />
       <workItem from="1579265338382" duration="10465000" />
+      <workItem from="1579343555078" duration="14857000" />
     </task>
     <servers />
   </component>
@@ -65,17 +72,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579275594436">
+    <state x="621" y="237" key="#Notifications" timestamp="1579343715540">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579275594436" />
+    <state x="621" y="237" key="#Notifications/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343715540" />
+    <state x="873" y="410" key="FileChooserDialogImpl" timestamp="1579343771824">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="873" y="410" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343771824" />
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579343774434">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343774434" />
     <state x="794" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579274474608">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="794" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579274474608" />
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579276302001">
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579355308873">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579276302001" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579355308873" />
   </component>
 </project>
