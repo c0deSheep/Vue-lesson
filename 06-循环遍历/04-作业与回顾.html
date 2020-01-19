@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item,index) in names" :class="{active:index===currentIndex}" @click="changeColor(index)">{{item}}</li>
+  </ul>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      names:['James','Kobe','Shark','AI','Wade'],
+      //用这个currentIndex来判断当前的索引
+      currentIndex:0
+    },
+    methods:{
+      changeColor (index) {
+        this.redIndex = index;
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.事件调用的方法没有参数(有或无加入小括号),无区别-->
+  <button @click="btnClick()">btn1</button>
+  <button @click="btnClick">btn2</button>
+
+<!--  2.在定义事件时,写方法没有省略小括号,但是方法本身是需要一个参数,这个时候就会显示undefined,和正常js一样
+      2.5在定义事件时,写方法时省略了小括号,但是方法本身时需要一个参数的,这个时候,VUE会默认将浏览器生成的event事件对象作为参数传入到方法-->
+  <button @click="btn2Click(123)">btn3</button>
+  <button @click="btn2Click()">btn4</button>
+  <button @click="btn2Click">btn5</button>
+
+<!--  3.在方法定义时,需要event对象,同时有需要其他参数,除了基本类型数据,其他如果没有在data里定义则非报错,因为非视作是变量-->
+  <button @click="btn3Click('abc',$event)">btn6</button><!--  在调用方法时,如何手动获取到浏览器的事件对象event:  $event-->
+  <button @click="btn3Click()">btn7</button>         <!--  显示undefined-->
+<!--  3.5在定义事件时,写方法时省略了小括号,但是方法本身时需要不止一个个参数的,这个时候,VUE会默认将浏览器生成的event事件对象作为第一个参数传入到方法,-->
+  <button @click="btn3Click">btn8</button>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    methods:{
+      btnClick(){
+        console.log('btn')
+      },
+      btn2Click(abc) {
+        console.log(abc)
+      },
+      btn3Click(abc,event){
+        console.log('++++++++++',abc,event)
+      }
+    }
+  })
+</script>
+</body>
+</html>

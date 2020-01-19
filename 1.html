@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+ <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+ </ul>
+    <!-- import js -->
+</body>
+<script>
+  var box=document.getElementById('box');
+  var boxList=box.getElementsByTagName('li');
+  for(let i=0;i<boxList.length;i++){
+    // boxList[i]:代表当前循环要操作的这个LI
+    i%2===0?'white':'pink';
+    boxList[i].style.backgroundColor=i%2===0?'white':'pink';
+    boxList[i].onmouseover=function(){
+      // this是当前操作的这个li
+      this.style.backgroundColor='blue';
+    }
+    boxList[i].onmouseout=function(){
+       this.style.backgroundColor=i%2===0?'white':'pink';
+      // if (i %2 == 0) {
+      //   this.style.backgroundColor='white';
+      // }else {
+      //   this.style.backgroundColor='pink'
+      // }
+    }
+
+  }
+</script>
+</html>

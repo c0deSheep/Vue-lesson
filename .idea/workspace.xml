@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e7537c3-efaa-4115-a120-508dfd03c7c1" name="Default Changelist" comment="" />
+    <list default="true" id="6e7537c3-efaa-4115-a120-508dfd03c7c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/04-事件监听/01-v-on的基本使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/04-事件监听/02-v-on的参数问题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/04-事件监听/03-v-on的修饰符.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/01-v-if条件判断.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/02-v-if和v-else条件判断.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/03-v-else-if条件判断.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/04-用户登录切换的案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/06-循环遍历/01-v-for遍历数组.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/06-循环遍历/02-v-for遍历对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/06-循环遍历/04-作业与回顾.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-书籍购物车/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-书籍购物车/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-书籍购物车/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-书籍购物车/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -30,15 +53,47 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/02-动态绑定属性" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/08-书籍购物车" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="J:\Web\Vue\Section1\05-条件判断" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\Web\Vue\Section1\08-书籍购物车" />
+      <recent name="J:\Web\Vue\Section1\07-循环遍历" />
+      <recent name="J:\Web\Vue\Section1\05-条件判断" />
       <recent name="J:\Web\Vue\Section1\02-动态绑定属性" />
       <recent name="J:\Web\Vue\Section1\01-插值的操作" />
-      <recent name="J:\Web\Vue\Section1\js" />
     </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="02-v-for遍历对象.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/02-v-for遍历对象.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="04-哪些数组的方法是响应式的.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/04-哪些数组的方法是响应式的.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="04-作业与回顾.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/04-作业与回顾.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/1.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/08-书籍购物车/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.04-作业与回顾.html" />
+        <item itemvalue="JavaScript Debug.04-哪些数组的方法是响应式的.html" />
+        <item itemvalue="JavaScript Debug.1.html" />
+        <item itemvalue="JavaScript Debug.02-v-for遍历对象.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -65,6 +120,7 @@
       <workItem from="1579191728546" duration="1546000" />
       <workItem from="1579265338382" duration="10465000" />
       <workItem from="1579343555078" duration="14857000" />
+      <workItem from="1579436356426" duration="15607000" />
     </task>
     <servers />
   </component>
@@ -80,17 +136,17 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="873" y="410" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343771824" />
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579343774434">
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579440047813">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343774434" />
-    <state x="794" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579274474608">
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579440047813" />
+    <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579439878195">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="794" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579274474608" />
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579355308873">
+    <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579439878195" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579453007703">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579355308873" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579453007703" />
   </component>
 </project>

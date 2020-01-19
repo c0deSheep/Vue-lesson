@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+<!--    1.此处为v-on的修饰符,即点.后加修饰符,比如stop可以阻止事件冒泡-->
+    <button @click.stop="btnClick">BTN</button>
+  </div>
+
+  <br>
+
+<!--  2. .prevent修饰符的使用,阻止默认事件-->
+  <form action="baidu">
+    <input type="submit" value="submit"  @click.prevent="submitClick">
+  </form>
+
+<!--  3.监听某个键盘键帽-->
+<!--  .enter意味着并不是所有键帽弹起时执行函数,只有enter键被弹起时执行-->
+  <input type="text" v-on:keyup.enter="keyUp">
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    methods:{
+      btnClick () {
+        console.log('btnClick');
+      },
+      divClick () {
+        console.log('divClick');
+      },
+      submitClick () {
+        console.log('submitClick');
+      },
+      keyUp () {
+        console.log('keyUp');
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--<div id="app">-->
+<!--  <h2 v-if="score >= 90"> Great </h2>-->
+<!--  <h2 v-else-if="score >= 80"> Good </h2>-->
+<!--  <h2 v-else-if="score >= 60"> Marginal </h2>-->
+<!--  <h2 v-else>Poor</h2>-->
+<!--</div>-->
+
+<div id="app">
+<!--  这里调用计算属性-->
+  <h2>{{result}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      score:59
+    },
+    //但是条件过多不宜出现在标签上,可以使用computed计算属性
+    computed:{
+      result() {
+        let showScore = '';
+        if (this.score >= 90) {
+          showScore = 'Great';
+        }else if (this.score >= 80) {
+          showScore = 'Good';
+        }else if (this.score >= 60) {
+          showScore = 'Marginal';
+        }else {
+          showScore = 'Poor';
+        }
+        //  最重要要返回这个showScore的值
+        return showScore;
+      }
+    }
+  })
+</script>
+</body>
+</html>
