@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  总结：单选框用布尔值变量来标记，多选框用数组来标记-->
+<!--  1.checkbox单选框-->
+  <label for="licence">
+<!--    v-model绑定的是   是或否  -->
+    <input type="checkbox" id="licence" v-model="isAgree">同意协议
+  </label>
+  <br>
+  <h2>你选择：{{isAgree}}</h2>
+  <button :disabled="!isAgree">下一步</button>
+
+  <br>
+<!--  2.checkbox多选框-->
+
+    <input type="checkbox" value="ipx" v-model="hobbies">ipx
+    <input type="checkbox" value="jufy" v-model="hobbies">jufy
+    <input type="checkbox" value="stars" v-model="hobbies">stars
+    <input type="checkbox" value="heyzo" v-model="hobbies">heyzo
+  <h2>爱好是：{{hobbies.join(' ')}}</h2>
+  <h2>爱好是：{{hobbies.toString()}}</h2>
+
+<!-- 值绑定 -->
+<!--  遍历originHobbies数组，并将input的value绑定从而能获取数组中的元素-->
+<!--  绑定for，让item赋值，再绑定id，让item赋值-->
+<!--  最后v-model双向绑定value-->
+  <label :for="item" v-for="item in originHobbies">
+    <input type="checkbox" :value="item" :id="item" v-model="hobbies">{{item}}
+  </label>
+  <h2>爱好是：{{hobbies.toString()}}</h2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      isAgree:false, //单选框
+      hobbies:[], //多选框
+      originHobbies:["ipx","jufy" ,"stars","heyzo"]
+    }
+  })
+</script>
+</body>
+</html>

@@ -2,26 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e7537c3-efaa-4115-a120-508dfd03c7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/04-事件监听/01-v-on的基本使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-事件监听/02-v-on的参数问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-事件监听/03-v-on的修饰符.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/01-v-if条件判断.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/02-v-if和v-else条件判断.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/03-v-else-if条件判断.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/04-用户登录切换的案例.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-循环遍历/01-v-for遍历数组.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-循环遍历/02-v-for遍历对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-循环遍历/04-作业与回顾.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/08-书籍购物车/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/08-书籍购物车/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/08-书籍购物车/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/08-书籍购物车/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/07-书籍购物车/高阶函数.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-v-model的使用/01-v-model的使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-v-model的使用/02-v-model的原理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-v-model的使用/03-v-model结合radio类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-v-model的使用/04-v-model的checkbox类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-v-model的使用/05-v-model结合select类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/01-组件化得基本使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/02-全局组件和局部组件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/03-父组件和子组件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/04-组件的语法糖注册方式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/05-组件模板的分离写法.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-书籍购物车/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/07-书籍购物车/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-书籍购物车/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/07-书籍购物车/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-书籍购物车/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/07-书籍购物车/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-书籍购物车/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/07-书籍购物车/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -69,29 +65,32 @@
       <recent name="J:\Web\Vue\Section1\01-插值的操作" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
-    <configuration name="02-v-for遍历对象.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/02-v-for遍历对象.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="JavaScript Debug.05-组件模板的分离写法.html">
+    <configuration name="01-组件化得基本使用.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/01-组件化得基本使用.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="04-哪些数组的方法是响应式的.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/04-哪些数组的方法是响应式的.html" useBuiltInWebServerPort="true">
+    <configuration name="02-全局组件和局部组件.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/02-全局组件和局部组件.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="03-父组件和子组件.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/03-父组件和子组件.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="04-组件的语法糖注册方式.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/04-组件的语法糖注册方式.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="04-作业与回顾.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/04-作业与回顾.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/1.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/08-书籍购物车/index.html" useBuiltInWebServerPort="true">
+    <configuration name="05-组件模板的分离写法.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/05-组件模板的分离写法.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.04-作业与回顾.html" />
-        <item itemvalue="JavaScript Debug.04-哪些数组的方法是响应式的.html" />
-        <item itemvalue="JavaScript Debug.1.html" />
-        <item itemvalue="JavaScript Debug.02-v-for遍历对象.html" />
+        <item itemvalue="JavaScript Debug.05-组件模板的分离写法.html" />
+        <item itemvalue="JavaScript Debug.04-组件的语法糖注册方式.html" />
+        <item itemvalue="JavaScript Debug.03-父组件和子组件.html" />
+        <item itemvalue="JavaScript Debug.02-全局组件和局部组件.html" />
+        <item itemvalue="JavaScript Debug.01-组件化得基本使用.html" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +119,8 @@
       <workItem from="1579191728546" duration="1546000" />
       <workItem from="1579265338382" duration="10465000" />
       <workItem from="1579343555078" duration="14857000" />
-      <workItem from="1579436356426" duration="15607000" />
+      <workItem from="1579436356426" duration="15933000" />
+      <workItem from="1579521141915" duration="14670000" />
     </task>
     <servers />
   </component>
@@ -136,17 +136,37 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="873" y="410" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343771824" />
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579440047813">
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom" timestamp="1579541200642">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579440047813" />
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200642" />
+    <state width="1362" height="266" key="GridCell.Tab.0.center" timestamp="1579541200641">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1362" height="266" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
+    <state width="1362" height="266" key="GridCell.Tab.0.left" timestamp="1579541200641">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1362" height="266" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
+    <state width="1362" height="266" key="GridCell.Tab.0.right" timestamp="1579541200641">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
+    <state x="792" y="295" key="RollbackChangesDialog" timestamp="1579527916090">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="792" y="295" key="RollbackChangesDialog/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579527916089" />
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor" timestamp="1579526696335">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="594" y="298" width="998" height="714" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579526696335" />
     <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579439878195">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579439878195" />
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579453007703">
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579521319789">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579453007703" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579521319789" />
   </component>
 </project>

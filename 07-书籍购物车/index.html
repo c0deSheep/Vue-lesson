@@ -10,6 +10,7 @@
 
 <div id="app">
 <!--  用length的0或数字来表示false或true-->
+<!--  v-if和v-else用于选择显示-->
   <div v-if="books.length">
     <table>
       <thead>
@@ -21,18 +22,24 @@
       <th>操作</th>
       </thead>
       <tbody>
+<!--      在内容表格用v-for遍历books数组，得到数组里的各个书本对象-->
       <tr v-for="(item,index) in books">
         <!--        <td v-for="value in item">{{value}}</td>-->
+<!--        在用对象.属性形式在mustache语法下显示内容-->
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.dateTime}}</td>
         <td>{{item.price | showPrice}}</td>
         <td>
+<!--          给按钮监听点击事件，并且需要传入每个书本对象在数组里的索引，以此来确定点击的对象-->
+<!--          再给按钮标签绑定属性v-bind:，使disabled属性通过判断这个书本对象的数量属性count时候小于等于1，来控制可否点击-->
           <button @click="decrement(index)" v-bind:disabled="item.count <= 1">-</button>
           {{item.count}}
           <button @click="increment(index)">+</button>
         </td>
         <td>
+<!--          再给按钮添加移除事件 ：this.books.splice(index,1)
+              通过数组截取事件使点击按钮导入书本对象再数组的索引，截取该书本对象从而移除这个书本-->
           <button @click="removeHandler(index)">移除</button>
         </td>
       </tr>

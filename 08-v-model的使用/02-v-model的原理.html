@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  通过对input标签的value属性绑定vue对象的message对象属性，使vue ——》 view的改变
+再对input标签的装有input事件监听，使发生键入的时候，能使vue对象的message跟着改变，实现view --》 vue的改变-->
+<!--  同时温故：methods中的函数有设置形参，但使用时没有传入实参时，自动调入event事件对象-->
+<!--  <input type="text" :value="message" v-on:input="changeValue">-->
+
+<!--  或者直接再v-on里编程表达式-->
+  <input type="text" :value="message" v-on:input="message = $event.target.value">
+  <h2>{{message}}</h2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    methods:{
+      changeValue (event) {
+        this.message = event.target.value;
+      }
+    }
+  })
+</script>
+</body>
+</html>

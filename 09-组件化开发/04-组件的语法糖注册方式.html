@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  3.使用组件-->
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  // 0.切记：全局组件的component方法是没有s，而局部组件的components属性是有s
+
+  // 1.全局组件注册的语法糖
+        // 1.创建组件构造器  (vue.extend方法已不常用)
+        // const cpn1 = Vue.extend({
+        //   template:`
+        //     <div>
+        //       <h2>title</h2>
+        //       <p>content,hhhhhhhhhhh</p>
+        //     </div>
+        //   `
+        // })
+
+
+  // 2.注册组件，改而放入注册组件中的后一个参数中插入模板（全局组件）
+  Vue.component('cpn1',{
+    template:`
+      <div>
+        <h2>title</h2>
+        <p>content</p>
+      </div>
+    `
+  });
+
+  // 2.注册局部组件的语法糖
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    components:{   //局部组件
+      'cpn2':{
+        template:`
+      <div>
+        <h2>title</h2>
+        <p>content,hhhhhhhhhhh</p>
+      </div>
+    `
+      }
+    }
+  })
+</script>
+</body>
+</html>
