@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--html标签不能出现大写字母-->
+  <div id="app">
+    <cpnc></cpnc>
+  </div>
+
+  <div id="abs">
+    <cpnCf></cpnCf>
+  </div>
+
+
+  <div id="bbc">
+    <cpns1></cpns1>
+    <cpns2></cpns2>
+  </div>
+
+
+  <div id="cbt">
+    <cpnb></cpnb>
+  </div>
+
+
+<!--  template标签代表组件模板分离的html转用标签,其中id为指针:  {template: #id}-->
+  <template id="cpn">
+    <div>
+      <h2>title_Cut_down</h2>
+      <p>content_Cut_down</p>
+    </div>
+  </template>
+
+
+<!--  ----------------------------------------------------------------------------------------->
+  <script src="../js/vue.js"></script>
+  <script>
+    // 一。创建组件构造器 ：    变量 = Vue.extend（{template ：`html标签`}）
+    const cpnC =Vue.extend({
+      template:`
+        <div>
+          <h2>title</h2>
+          <p>content</p>
+        </div>
+      `
+    })
+
+    // 【全局组件的写法】  全局组件意味着所有vue实例对象都可以应用,但是必须写在vue实例的前面,否则无法引用
+    // 二。注册组件 Vue.component（{组件标签（自定义/并且需要用引号括起）：变量}）
+    Vue.component("cpnc",cpnC)
+    const app = new Vue ({
+      el:'#app',
+      data:{
+        message:'Hello'
+      },
+      //【局部组件的写法】
+      // 二。在vue对象里用components属性包括起键值对————>   组件标签（自定义/并且需要用引号括起）：变量
+      // components:{
+      //   "cpnc":cpnC
+      // }
+    })
+
+    //--------------------------------------------------------------------
+    //父子组件
+    //必须先写子组件，因为按顺序加载代码
+    // 一。创建子组件构造器
+    const cpnC_son = Vue.extend({
+      template:`
+        <div>
+          <h2>title_son</h2>
+          <p>content_son</p>
+        </div>
+      `
+    })
+
+    // 二。创建父组件构造器
+    const cpnC_father = Vue.extend({
+      template:`
+        <div>
+          <h2>title_father</h2>
+          <p>content_father</p>
+          <cpnCs></cpnCs>
+        </div>
+      `,
+      // 三。给子组件注册组件（必须在父组件的构造器中添加components属性）
+      components:{
+        "cpnCs" : cpnC_son,
+      }
+    })
+    // 四。给父组件注册组件（可选中局部父组件或全局父组件）
+    // Vue.component("cpncf",cpnC_father)
+    const abs = new Vue ({
+      el:'#abs',
+      data:{
+        message:'Hello'
+      },
+      // 四。给父组件注册组件（可选中局部父组件或全局父组件）
+      components:{
+        "cpncf":cpnC_father
+      }
+    });
+
+  //  -----------------------------------------------------------------------
+  //  组件的语法糖注册方式，将创建组件构造器--->变量 = Vue.extend（{template ：`html标签`}）
+    //  中的{template ：`html标签`}直接移到Vue.component（）中或vue实例对象中的component：属性中
+  //  全局注册局部组件语法糖注册方式
+    Vue.component('cpns1',{
+      template:`
+      <div>
+          <h2>title_Syntactic_sugar</h2>
+          <p>content_Syntactic_sugar</p>
+<!--          <cpnCs></cpnCs>-->
+        </div>
+`
+    })
+  const bbc = new Vue ({
+    el:'#bbc',
+    data:{
+      message:'hello'
+    },
+    //  局部注册局部组件语法糖注册方式
+    components:{
+      'cpns2' : {
+        template:`
+      <div>
+          <h2>title_Syntactic_sugar  2</h2>
+          <p>content_Syntactic_sugar   2</p>
+<!--          <cpnCs></cpnCs>-->
+        </div>
+`
+      },
+    }
+  })
+
+  //  ---------------------------------------------------------------------------------
+  //  组件模板分离
+  //  鉴于将组件的标签内容放到js中导致观感不佳，甚至混乱情况，诞生将标签与js分离的操作(局部组件和全局组件皆可)
+  //  template标签
+  //  组件模板分离全局组件
+    Vue.component('cpnb',{
+      template:'#cpn'
+    })
+
+    const cbt = new Vue ({
+      el:'#cbt',
+      data:{
+        message:'hello',
+      },
+      //组件模板分离局部组件
+      // components:{
+      //   'cpnb':{
+      //     template:'#cpn'
+      //   }
+      // }
+    })
+  </script>
+</body>
+</html>

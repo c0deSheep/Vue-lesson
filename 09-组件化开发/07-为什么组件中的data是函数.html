@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  {{message}}
+  <cpn></cpn>
+  <cpn></cpn>
+
+</div>
+
+
+<template id="cpn">
+  <div>
+    <h2>{{count}}</h2>
+    <button @click="decrement">-</button>
+    <button @click="increment">+</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  // 1.注册组件
+  //指令根据传入参数,创建组件实例,而在data属性中使用函数的形式,使得不会共享,每次创建的组件data都是独有的this,从而可以区分
+  // 同一个组件的多次使用
+  Vue.component('cpn',{
+    template:'#cpn',
+    //方法
+    data () {
+      //return一个新的对象{},这样是每个组件实例对象的模板,返回一个专属的数据
+      return {
+        count:'0'      //返回一个唯一的对象，不要和其他组件共用一个对象进行返回
+      }
+    //  为什么要写renturn返回
+    //   因为不使用return包裹的数据会在项目的全局可见，会造成变量污染
+    //   使用return包裹后数据中变量只在当前组件中生效，不会影响其他组件。
+    },
+    methods:{
+      increment (){
+        this.count ++;
+      },
+      decrement () {
+        this.count --;
+      }
+    }
+  })
+
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  在父组件标签里,组件模板标签绑定子组件的props属性的元素,用父组件的data-->
+<!--  -----------------------------------关键操作1---------------------------------->
+  <cpn v-bind:cmovies="movies" v-bind:cmessages="message"></cpn>
+  {{message}}
+</div>
+
+
+<!--子组件模板标签内容里用子组件中设置的props变量-->
+<template id="cpn">
+  <div>
+    <h2>{{cmovies}}</h2>
+    <p>{{cmessages}}</p>
+    <ul>
+      <li v-for="item in cmovies">{{item}}</li>
+    </ul>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  //父传子:props,写在子组件的属性里
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      movies:['a','b','c']
+    },
+    components:{
+      //key参数是组件标签名
+      'cpn':{
+        //template:对应的是组件模板标签id
+        template:'#cpn',
+        // -------------------------------------关键操作2------------------------------------
+        //子组件里设置props属性,包括要对接父组件的变量
+        props:['cmovies','cmessages'],
+        //通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。
+        data () {
+          return {}
+          // vue组件中data值不能为对象，因为对象是引用类型，组件可能会被多个实例同时引用。如果data值为对象，将导致多个实例共享一个对象，其中一个组件改变data属性值，其它实例也会受到影响。
+          // 上面解释了data不能为对象的原因，这里我们简单说下data为函数的原因。data为函数，通过return 返回对象的拷贝，致使每个实例都有自己独立的对象，实例之间可以互不影响的改变data属性值。
+
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
