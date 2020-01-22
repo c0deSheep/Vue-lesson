@@ -7,17 +7,18 @@
 <body>
 <div id="app">
 <!--  总的来说,v-if和v-else是让二选一[显示]的作用,而里面的true/false并不会写死,而是定义vue对象的data属性对象-->
+<!--  存在问题是两组东西，输入内容在切换时不会变化，解决方法有以下三种，-->
   <span v-if="isName">
     <label for="userName">用户账号</label>
 <!--    <input type="text" id="userName" placeholder="请输入用户账户名" v-model="inputValue" key="name">-->
-<!--    <input type="text" id="userName" placeholder="请输入用户账户名" v-model="inputValue">-->
-    <input type="text" id="userName" placeholder="请输入用户账户名" :value="sa">
+    <input type="text" id="userName" placeholder="请输入用户账户名" v-model="inputValue">
+<!--    <input type="text" id="userName" placeholder="请输入用户账户名" :value="sa">-->
   </span>
   <span v-else="">
     <label for="userEmail">用账邮箱</label>
 <!--    <input type="text" id="userEmail" placeholder="请输入邮箱" v-model="inputValue" key="email">-->
-<!--    <input type="text" id="userEmail" placeholder="请输入邮箱"  v-model="inputValue">-->
-    <input type="text" id="userEmail" placeholder="请输入邮箱"  :value="e">
+    <input type="text" id="userEmail" placeholder="请输入邮箱"  v-model="inputValue">
+<!--    <input type="text" id="userEmail" placeholder="请输入邮箱"  :value="e">-->
   </span>
   <button @click="changeWay">切换{{text}}</button>
 </div>
@@ -42,7 +43,7 @@
         // };
         this.text = this.text === '用户名'? '邮箱':'用户名';
         this.isName = !this.isName;
-        // this.inputValue = '';
+        this.inputValue = '';
       }
     }
   })

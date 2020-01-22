@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+<!--  2.子组件对接父组件，通过事件处理函数传达，这里的v:on / @ 后跟着的不是传统的事件，而是在第一步自定义的事件-->
+  <son @father_do="father"></son>
+</div>
+
+
+<template id="son">
+  <div @click="cclick">
+    <p>{{catogries}}</p>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const son = {
+    template:'#son',
+    data () {
+      return {
+        //举例这里子组件的数据为数组
+        catogries:[
+          {'a':'1'}
+        ]
+      }
+    },
+    methods:{
+        cclick () {
+          //1.发射事件
+          this.$emit('father_do')
+        }
+    }
+  }
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+      },
+    components:{
+      son
+    },
+    methods:{
+      // 3.编写子组件传达事件中数据处理函数，如果这里设置了形参，默认时子组件传达的数据
+      father () {
+        console.log('work')
+      }
+    }
+  })
+</script>
+</body>
+</html>

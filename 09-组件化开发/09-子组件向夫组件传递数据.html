@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+<!--  2. 然后在父组件标签中的子组件标签中监听这个事件-->
+  <!--  子组件的标签中监听这个发射的事件，并且再将此事件用对应的方法处理，这里的方法是在父组件中定义-->
+<!--  // 当子组件发射事件，传入了item对象参数，但父组件处理事件没有接受参数时，默认传入子组件item数据-->
+  <cpn @item_click="cpn_click"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <button v-for="item in categories" @click="btn_click(item)">{{item.name}}</button>
+  </div>
+</template>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+      template:'#cpn',
+      data () {
+        return {
+          categories:[
+            {id:'a',name:'James'},
+            {id:'b',name:'Kobe'},
+            {id:'c',name:'T-mac'},
+            {id:'d',name:'Wade'},
+          ]
+        }
+      },
+      // 1.  当子组件有需要将数据发送给父组件时，在methods中 发射一个事件this.$emit（），
+      // 事件的类型需要自定义，下面例子是'item_click'
+      methods:{
+        btn_click(item) {
+        //  传输子组件数据到父组件
+          console.log(item)
+        //关键方法:发射事件和数据，接收参数为：自定义事件（功能），目标
+          this.$emit('item_click',item)
+        }
+      }
+
+  }
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    components:{
+      'cpn':cpn
+    },
+
+    // 3. 事件需要处理的功能就在父组件中的methods上编写,
+
+    methods:{
+      cpn_click (item) {
+        console.log(item)
+      }
+    }
+  })
+</script>
+</body>
+</html>

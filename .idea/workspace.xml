@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e7537c3-efaa-4115-a120-508dfd03c7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/06-组件中的数据存放问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/07-为什么组件中的data是函数.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/08-父组件向子组件传递数据.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/全局和局部组件+父子组件总结.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/09-子组件向夫组件传递数据.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/test2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09-组件化开发/01-组件化得基本使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发/01-组件化得基本使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" beforeDir="false" afterPath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-组件化开发/08-父组件向子组件传递数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发/08-父组件向子组件传递数据.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,32 +57,29 @@
       <recent name="J:\Web\Vue\Section1\01-插值的操作" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.08-父组件向子组件传递数据.html">
-    <configuration name="04-作业与回顾.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/07-循环遍历/04-作业与回顾.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="05-组件模板的分离写法.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化开发/05-组件模板的分离写法.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="06-组件中的数据存放问题.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/06-组件中的数据存放问题.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="07-为什么组件中的data是函数.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/07-为什么组件中的data是函数.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="JavaScript Debug.05-用户登录切换的案例（存在的问题）.html">
+    <configuration name="05-用户登录切换的案例（存在的问题）.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/05-条件判断/05-用户登录切换的案例（存在的问题）.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="08-父组件向子组件传递数据.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/08-父组件向子组件传递数据.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="全局和局部组件+父子组件总结.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/全局和局部组件+父子组件总结.html" useBuiltInWebServerPort="true">
+    <configuration name="09-子组件向夫组件传递数据.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/09-子组件向夫组件传递数据.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="test2.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/test2.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.05-用户登录切换的案例（存在的问题）.html" />
+        <item itemvalue="JavaScript Debug.test2.html" />
+        <item itemvalue="JavaScript Debug.09-子组件向夫组件传递数据.html" />
+        <item itemvalue="JavaScript Debug.test.html" />
         <item itemvalue="JavaScript Debug.08-父组件向子组件传递数据.html" />
-        <item itemvalue="JavaScript Debug.07-为什么组件中的data是函数.html" />
-        <item itemvalue="JavaScript Debug.06-组件中的数据存放问题.html" />
-        <item itemvalue="JavaScript Debug.全局和局部组件+父子组件总结.html" />
-        <item itemvalue="JavaScript Debug.05-组件模板的分离写法.html" />
       </list>
     </recent_temporary>
   </component>
@@ -112,6 +111,9 @@
       <workItem from="1579436356426" duration="15933000" />
       <workItem from="1579521141915" duration="14670000" />
       <workItem from="1579608884191" duration="12345000" />
+      <workItem from="1579695569927" duration="19000" />
+      <workItem from="1579695653320" duration="359000" />
+      <workItem from="1579696021087" duration="12062000" />
     </task>
     <servers />
   </component>
@@ -119,10 +121,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="621" y="237" key="#Notifications" timestamp="1579343715540">
+    <state x="621" y="237" key="#Notifications" timestamp="1579710071925">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="621" y="237" key="#Notifications/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343715540" />
+    <state x="621" y="237" key="#Notifications/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579710071925" />
     <state x="873" y="410" key="FileChooserDialogImpl" timestamp="1579343771824">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -155,9 +157,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579624219376" />
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579521319789">
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579715178580">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579521319789" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579715178580" />
   </component>
 </project>

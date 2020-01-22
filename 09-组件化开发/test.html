@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  --------------  2  在使用组件的时候绑定数据，将父组件的数据绑定到子组件中----------------->
+  <cpn v-bind:sonmessages="message"></cpn>
+</div>
+
+
+<div id="bbc">
+  <!--  --------------  2  在使用组件的时候绑定数据，将父组件的数据绑定到子组件中----------------->
+  <cpn  :sonlist="list"></cpn>
+</div>
+
+
+
+<!--组件模块分离html标签-->
+<!--在子组件模板标签中使用实例对象中定义的prop属性中的变量-->
+<template id="cpn">
+<!--  组件模板最外面应该有一个div包裹-->
+  <div>
+    <!-- ------------- 3  将数据变量放入组件模板标签中，对应使用--------------------->
+    <p>{{sonmessages}}</p>
+    <p>{{sonmessagesssssssssss}}</p>
+    <ul>
+      <li v-for="item in sonlist">{{item}}</li>
+    </ul>
+    <p>{{sonobj}}</p>
+  </div>
+</template>
+
+
+<!--证明props可以在全局组件中分别使用，并传入各自实例（父组件）的数据-->
+<!--在谁属性里定义的，就写那个在左边-->
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('cpn',{
+    template:'#cpn',
+    //全局子组件data，必须以函数形式返回一个对象，通过此创建的对象实例可以防止因为子组件data改变而其他子组件data也改变
+    //如果设置了返回数据，则不能使用props，否则冲突
+    data () {
+      return {}
+    },
+    // ------------------  1  创建prop属性，数据变量-------------------
+        //  i.使用数组方式来存储变量
+    // props:['sonmessages','sonlist']
+    props:{
+      //  ii.使用对象的方式来存储变量  ：好处是可以限制和判断类型
+      // sonmessages:String,
+      // sonlist:Array,
+
+      //  iii.提供一些默认值(通过对象) ： 如果在模板标签中定义了这个变量，但没有绑定父组件的对应数据，如果有设定就会使用默认值，
+      //     没有设定默认值就不显示。
+      //         但是如果没有默认值，却设置了require：true，就会报错 ------->Missing required prop
+      sonmessages:{
+        type:String,
+        default:'aaaaa'
+      },
+      sonmessagesssssssssss:{
+        type:String,
+        // required:true
+      },
+        // iii.i 如果以数组 / 对象的的形式，默认值必须是函数的形式返回（数组／对象的默认值应当由一个工厂函数返回）
+      sonlist:{
+        type:Array,
+        default: function () {
+          return ['1','2','3','4']
+        }
+      },
+      sonobj:{
+        type:Object,
+        default: function () {
+          return {a:'object defalut'}
+        }
+      },
+    },
+
+  })
+
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    // 局部子组件data
+    // components:{
+    //   'cpn':{
+    //     template:'#cpn',
+    //     props:['cmessages'],
+    //     data () {
+    //       return {}
+    //     }
+    //   },
+    // },
+  })
+
+
+  const bbc = new Vue ({
+    el:'#bbc',
+    data:{
+      message:'hello',
+      list:['a','b','c','d']
+    }
+  })
+
+</script>
+</body>
+</html>
