@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{root}}
+  <div>
+    <cpn_father></cpn_father>
+  </div>
+</div>
+
+
+<template id="cpn_father">
+  <div>
+    <h2>{{father1}}</h2>
+      <button @click="btn1_click">父组件按钮</button>
+<!--    子组件要包裹再父组件的标签里面，不能越级-->
+      <cpn_son></cpn_son>
+  </div>
+</template>
+
+<template id="cpn_son">
+  <div>
+    <h2>{{son}}</h2>
+    <button @click="btn2_click">子组件按钮</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      root:'i am root'
+    },
+    components:{
+      cpn_father:{
+        template:'#cpn_father',
+        data(){
+          return {father1:'i am father'}
+        },
+        methods:{
+          btn1_click () {
+            //访问父组件用$parent方法
+            console.log(this.$parent)
+            console.log(this.$parent.root)
+          }
+        },
+        components: {
+          cpn_son:{
+            template: '#cpn_son',
+            data () {
+              return {son:'i am son'}
+            },
+            methods:{
+              btn2_click () {
+                //访问父组件用$parent方法
+                console.log(this.$parent);
+                //访问根组件用$root方法
+                console.log(this.$root)
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

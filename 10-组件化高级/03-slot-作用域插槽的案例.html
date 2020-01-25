@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <cpn></cpn>
+<!--  当在父组件展示时，如想换别的形式展示-->
+  <cpn>
+<!--    这种方式报错，因为编译作用域原因，此pLanguage将会在app父组件中寻找，当其属于子组件，所以报错-->
+<!--    <span v-for="item in pLanguage">{{item}}</span>-->
+<!--    -------------------目的时获取子组件中的pLanguage-------------->
+<!--    为了能将子组件中的数据传入，必须写上模板-->
+<!--    vue2.5以下，必须时template标签,然后通过slot-scope传入slot属性-->
+<!--    vue 2.6后,slot-scope被废弃,并将在3.0后版本移除,取而代之的时v-slot,模板标签一样时绑定需要的数据,绑定的前缀自定义:"data"
+        只是在父组件标签中使用时将slot-scope='slot'改成v-slot='自定义的绑定属性'-->
+<!--    <template slot-scope="slot">-->
+    <template v-slot:slot="data">
+<!--      需要在父组件中修改的内容,下面的slot.data就是组件模板中的插槽绑定的data属性，通过slot.data就能获取子组件的数据-->
+<!--      vue2.6后,   slot.自定义绑定属性   就改成    自定义绑定属性    -->
+<!--      <span v-for="item in slot.data">{{item}}</span>-->
+      <span v-for="item in data">{{item.join('-')}}</span>
+
+    </template>
+  </cpn>
+<!--  <cpn>-->
+<!--    <template v-slot="data">-->
+<!--      <span v-for="item in data">{{item.join('*')}}</span>-->
+<!--    </template>-->
+<!--  </cpn>-->
+  <cpn></cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+<!--    slot除了可以定义name属性外，其实还可以定义其他属性(包括自定义属性)，或者绑定其他vue属性-->
+    <slot :data="pLanguage" name="slot"></slot>
+    <ul>
+      <li v-for="item in pLanguage">{{item}}</li>
+    </ul>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data () {
+          return {
+            pLanguage:['JavaScript','Java','c++','Python','Go']
+          }
+        }
+      }
+
+    }
+  })
+</script>
+</body>
+</html>

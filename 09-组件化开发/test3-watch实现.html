@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+<!--  最初，将父组件的数据通过子组件prop属性传递到子组件上-->
+<!--  中间，子传父需要将自定义事件再用父组件的方法来执行-->
+<!--  最后，子传父后，父再将数据通过子组件props传递到子组件上，形成一个循环圆-->
+  <cpn :father_to_son1="father1"
+       :father_to_son2="father2"
+       @change_father_num1="father_num1"
+       @change_father_num2="father_num2"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>props:{{father_to_son1}}</h2>
+    <h2>data:{{son_num1}}</h2>
+<!--通过使用watch方法，可以直接监听v-model绑定的可以传递的数据的变化而触发事件,watch是写在子组件的属性中-->
+<!--    <input type="text" :value="father_to_son1" @input="change_son_num1">-->
+    <input type="text" v-model="son_num1">
+
+    <p>props:{{father_to_son2}}</p>
+    <h2>data:{{son_num2}}</h2>
+<!--    <input type="text" :value="father_to_son2" @input="change_son_num2">-->
+    <input type="text" v-model="son_num2">
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      father1:1,
+      father2:2
+    },
+    methods:{
+      father_num1(item){
+          this.father1 = +item
+      },
+      father_num2(item){
+          this.father2 = +item
+      }
+    },
+    components:{
+      'cpn':{
+        template:'#cpn',
+        props:{
+          father_to_son1:Number,
+          father_to_son2:Number,
+        },
+      //  如果使用props父传子数据，并且双向绑定数据修改父传回来的数据将会报错：
+      //   因为props只读不可写，要用input输入方法修改组件自己的data，然后再用$emit调用父组件方法，修改父组件的data
+        //  Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders.
+        //  Instead, use a data or computed property based on the prop's value. Prop being mutated: "father_to_son1"
+        //  如果需要修改父传子的数据,并将父传子的数据再传回给父,就需要操作子传父,就是利用子组件data属性,用this.$emit()方法
+        data() {
+          return {
+            //  将需要传回给父的数据用中间量存储
+            son_num1 : this.father_to_son1,
+            son_num2 : this.father_to_son2
+          }
+        },
+        // methods:{
+        //   //在定义事件时,写方法时省略了小括号,但是方法本身时需要一个参数的,这个时候,VUE会默认将浏览器生成的event事件对象作为参数传入到方法-->
+        //       change_son_num1 (event) {
+        //     // 实时将获取的输入值改变到子组件数据中
+        //         this.son_num1 = event.target.value;
+        //     // 将数据发送到父组件上(定义一个事件，并将中间量存储数据作为第二个参数(此参数回传入前面定义的事件中))
+        //         this.$emit('change_father_num1',this.son_num1)
+        //
+        //         //这步的操作是在第一个input输入值时，除了改变对应的父组件外，将兄弟子组件的值也改变
+        //         //关系是下面是上面的100倍
+        //         this.son_num2 = this.son_num1 * 100
+        //         this.$emit('change_father_num2',this.son_num2)
+        //
+        //       },
+        //
+        //   change_son_num2 (event) {
+        //     // 实时将获取的输入值改变到子组件数据中
+        //     this.son_num2 = event.target.value;
+        //     // 将数据发送到父组件上(定义一个事件，并将中间量存储数据作为第二个参数(此参数回传入前面定义的事件中))
+        //     this.$emit('change_father_num2',this.son_num2)
+        //
+        //     //这步的操作是在第一个input输入值时，除了改变对应的父组件外，将兄弟子组件的值也改变
+        //     this.son_num1 = this.son_num2 / 100
+        //     this.$emit('change_father_num1',this.son_num1)
+        //   }
+        // }
+
+        //watch方法就可以直接将需要监听改变时触发函数，函数名为监听数据的名字，形参为变化的值
+        watch:{
+          son_num1 (newValue) {
+            this.son_num2 = newValue * 100;
+            this.$emit('change_father_num1',newValue)
+          },
+          son_num2 (newValue) {
+            this.son_num1 = newValue / 100;
+            this.$emit('change_father_num2',newValue)
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

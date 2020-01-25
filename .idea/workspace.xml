@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e7537c3-efaa-4115-a120-508dfd03c7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/09-子组件向夫组件传递数据.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/09-组件化开发/test2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/10-父子组件通信案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/11-组件访问-父访问子组件$children和$ref.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/12-组件访问-子访问父组件 $parent 和根组件 $root.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/test3-watch实现.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-组件化开发/test3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10-组件化高级/02-slot-具名插槽的使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10-组件化高级/03-slot-作用域插槽的案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现/one.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现/two.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" beforeDir="false" afterPath="$PROJECT_DIR$/05-条件判断/05-用户登录切换的案例（存在的问题）.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/05-条件判断/06-v-show的使用.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-循环遍历/04-哪些数组的方法是响应式的.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09-组件化开发/08-父组件向子组件传递数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发/08-父组件向子组件传递数据.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-事件监听/02-v-on的参数问题.html" beforeDir="false" afterPath="$PROJECT_DIR$/04-事件监听/02-v-on的参数问题.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-组件化开发/02-全局组件和局部组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发/02-全局组件和局部组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-组件化开发/09-子组件向夫组件传递数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发/09-子组件向父组件传递数据.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -38,48 +45,50 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/08-书籍购物车" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/09-组件化开发" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="J:\Web\Vue\Section1\05-条件判断" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\Web\Vue\Section1\09-组件化开发" />
       <recent name="J:\Web\Vue\Section1\08-书籍购物车" />
       <recent name="J:\Web\Vue\Section1\07-循环遍历" />
       <recent name="J:\Web\Vue\Section1\05-条件判断" />
       <recent name="J:\Web\Vue\Section1\02-动态绑定属性" />
-      <recent name="J:\Web\Vue\Section1\01-插值的操作" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="J:\Web\Vue\Section1\01-组件化高级" />
+      <recent name="J:\Web\Vue\Section1\05-条件判断" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.05-用户登录切换的案例（存在的问题）.html">
-    <configuration name="05-用户登录切换的案例（存在的问题）.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/05-条件判断/05-用户登录切换的案例（存在的问题）.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="02-slot-具名插槽的使用.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化高级/02-slot-具名插槽的使用.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="08-父组件向子组件传递数据.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/08-父组件向子组件传递数据.html" useBuiltInWebServerPort="true">
+    <configuration name="03-slot-作用域插槽的案例.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/10-组件化高级/03-slot-作用域插槽的案例.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="09-子组件向夫组件传递数据.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/09-子组件向夫组件传递数据.html" useBuiltInWebServerPort="true">
+    <configuration name="13-slot-插槽的基本使用.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/01-组件化高级/13-slot-插槽的基本使用.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="test2.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/test2.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/11-前端模块化/01-ES6的模块化实现/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Section1/09-组件化开发/test.html" useBuiltInWebServerPort="true">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现/index.js" working-dir="$PROJECT_DIR$/11-前端模块化/01-ES6的模块化实现">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.05-用户登录切换的案例（存在的问题）.html" />
-        <item itemvalue="JavaScript Debug.test2.html" />
-        <item itemvalue="JavaScript Debug.09-子组件向夫组件传递数据.html" />
-        <item itemvalue="JavaScript Debug.test.html" />
-        <item itemvalue="JavaScript Debug.08-父组件向子组件传递数据.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="JavaScript Debug.03-slot-作用域插槽的案例.html" />
+        <item itemvalue="JavaScript Debug.02-slot-具名插槽的使用.html" />
+        <item itemvalue="JavaScript Debug.13-slot-插槽的基本使用.html" />
       </list>
     </recent_temporary>
   </component>
@@ -114,6 +123,9 @@
       <workItem from="1579695569927" duration="19000" />
       <workItem from="1579695653320" duration="359000" />
       <workItem from="1579696021087" duration="12062000" />
+      <workItem from="1579776593038" duration="2720000" />
+      <workItem from="1579837894178" duration="22386000" />
+      <workItem from="1579875856644" duration="3081000" />
     </task>
     <servers />
   </component>
@@ -125,26 +137,26 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="621" y="237" key="#Notifications/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579710071925" />
-    <state x="873" y="410" key="FileChooserDialogImpl" timestamp="1579343771824">
+    <state x="873" y="410" key="FileChooserDialogImpl" timestamp="1579885953190">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="873" y="410" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579343771824" />
-    <state width="1362" height="266" key="GridCell.Tab.0.bottom" timestamp="1579541200642">
+    <state x="873" y="410" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579885953190" />
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom" timestamp="1579885961863">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1362" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200642" />
-    <state width="1362" height="266" key="GridCell.Tab.0.center" timestamp="1579541200641">
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579885961863" />
+    <state width="1362" height="266" key="GridCell.Tab.0.center" timestamp="1579885961863">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1362" height="266" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
-    <state width="1362" height="266" key="GridCell.Tab.0.left" timestamp="1579541200641">
+    <state width="1362" height="266" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579885961863" />
+    <state width="1362" height="266" key="GridCell.Tab.0.left" timestamp="1579885961863">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1362" height="266" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
-    <state width="1362" height="266" key="GridCell.Tab.0.right" timestamp="1579541200641">
+    <state width="1362" height="266" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579885961863" />
+    <state width="1362" height="266" key="GridCell.Tab.0.right" timestamp="1579885961863">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579541200641" />
+    <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579885961863" />
     <state x="792" y="295" key="RollbackChangesDialog" timestamp="1579527916090">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -157,9 +169,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="642" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579624219376" />
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579715178580">
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup" timestamp="1579869671240">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579715178580" />
+    <state x="692" y="297" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1579869671240" />
   </component>
 </project>

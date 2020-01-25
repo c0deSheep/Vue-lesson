@@ -24,6 +24,7 @@
 <script>
   const cpn = {
       template:'#cpn',
+      //子传父需要data返回一数据
       data () {
         return {
           categories:[
@@ -40,7 +41,7 @@
         btn_click(item) {
         //  传输子组件数据到父组件
           console.log(item)
-        //关键方法:发射事件和数据，接收参数为：自定义事件（功能），目标
+        //关键方法:发射事件和数据，接收参数为：自定义事件（功能），子组件数据
           this.$emit('item_click',item)
         }
       }

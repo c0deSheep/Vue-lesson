@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <cpn :number1="num1" :number2="num2" @father_change="father"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>props:{{number1}}</h2>
+    <h2>data:{{dnumber1}}</h2>
+<!--    <input type="text" v-model="dnumber1">-->
+    <input type="text" :value="dnumber1" @input="changeNum1">
+    <h2>{{number2}}</h2>
+    <h2>data:{{dnumber2}}</h2>
+    <input type="text" :value="dnumber2" @input="changeNum2">
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      num1:1,
+      num2:2,
+    },
+    methods:{
+      father (item) {
+        this.num1 = parseInt(item)
+      }
+    },
+    components:{
+      'cpn':{
+        template:'#cpn',
+      //  父传子,使用props属性,接收一个对象
+      //  props只读不可写，要用input输入方法修改组件自己的data，然后再用$emit调用父组件方法，修改父组件的data
+        props:{
+          number1:Number,
+          number2:Number
+        },
+        data () {
+          return {
+            dnumber1:this.number1,
+            dnumber2:this.number2
+          }
+        },
+        methods:{
+          changeNum1 (event) {
+            this.dnumber1 = event.target.value
+            this.$emit('father_change',this.dnumber1)
+
+          },
+          changeNum2 (event) {
+            this.dnumber2 = event.target.value
+            // this.$emit('father_change',item)
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

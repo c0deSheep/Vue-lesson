@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+<!--2.然后将需要改的组件标签中通过name来修改-->
+  <cpn><p slot="sl1">我是第一个组件，如果看到我证明我已替换了默认插槽</p></cpn>
+  <cpn>
+    <br slot="sl2">
+  </cpn>
+  <cpn>
+    <hr slot="sl3">
+  </cpn>
+</div>
+
+<!--1.一个组件里有多个slot插槽时，如果需要改变其中一个，这时需要具名属性，添加name-->
+<template id="cpn">
+  <div>
+    <h2>{{name}}</h2>
+    <slot name="sl1">
+      <button>按钮</button>
+    </slot>
+    <slot name="sl2">
+      <button>按钮</button>
+    </slot>
+    <slot name="sl3">
+      <button>按钮</button>
+    </slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data () {
+          return {
+            name:'i am component'
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

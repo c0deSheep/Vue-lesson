@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  {{message}}
+  <cpn ref="key1"></cpn>
+
+  <button @click="btn_click">click to show son</button>
+</div>
+
+
+<template id="cpn">
+  <h2>{{name}}</h2>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    methods:{
+      btn_click () {
+        //在父组件中使用属性可以访问到子组件的数据：
+        // 1.$children,注意，children顾名思义就是复数，即集合形式，如果有多个则按返回多个，要去到哪个就用索引方式
+        console.log(this.$children[0]);
+          // 如上就能获取到特定的子组件包括所有属性和方法，则通过调用就可以获取
+
+        //  回顾es6的for遍历of表示元素，in表示索引
+        for (let index in  this.$children) {
+          console.log(this.$children[index]);
+          this.$children[index].say_hi();
+        }
+      //  for (let ele of  this.$children) {
+      //   console.log(ele.name);
+      //   ele.say_hi();
+      // }
+
+
+      //  但是$childen有一个弊端是如果多个子组件同时存在，必须通过索引获取特定，如果在子组件中插入子组件，将打乱顺序，
+        //  所以有二种方式 $refs
+      //  2.$refs,注意$refs是父组件中使用，对应的子组件标签中需要加入ref的属性，同时标记--> ref='key',再通过父组件的$refs.key来获取特定
+        console.log(this.$refs.key1.name)
+      //  如上就能不顾索引获取子组件类似id,同时$refs => 是对象类型，默认是一个空的对象
+      }
+    },
+    components:{
+      'cpn':{
+        template:'#cpn',
+        data () {
+          return {
+            name:'Son'
+          }
+        },
+        methods:{
+          say_hi () {
+            alert('hello,i am son')
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

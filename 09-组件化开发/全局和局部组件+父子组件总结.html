@@ -26,6 +26,11 @@
   </div>
 
 
+<div id="mouse"></div>
+
+<div id="vue_test"></div>
+
+
 <!--  template标签代表组件模板分离的html转用标签,其中id为指针:  {template: #id}-->
   <template id="cpn">
     <div>
@@ -156,6 +161,48 @@
       //   }
       // }
     })
+
+    //  -------------------------------------testVUE实例中的template------------------------------------
+      const mouse = new Vue ({
+        el:'#mouse',
+        template:`
+          <h2>成功将vue实例的标签内容放入template中</h2>
+        `
+      })
+
+  //  ------------------------------------1.24【webpack-vue插入使用测试组件】-----------
+  //  子组件使用一个变量转载
+    const test_vue = {
+      template:`
+      <div>
+          <h2>我是webpack中的vue使用</h2>
+          <p>{{test_info}}</p>
+          <button @click="btn_click">按钮</button>
+      </div>
+      `,
+      data () {
+        return {
+          test_info:'我是webpack中的vue使用中的test_info属性'
+        }
+      },
+      methods:{
+        btn_click(){
+          console.log('works!')
+        }
+      }
+    }
+
+    const vueTest = new Vue ({
+      el:'#vue_test',
+      data:{},
+      template:'<test_vue/>',
+      components:{
+        //这里的test_vue是test_vue = ‘test_vue’的缩写（es6新特性），
+        // 前一个test_vue是子组件模块标签，也就是代表template，后一个就是变量
+        test_vue,
+      }
+    })
+
   </script>
 </body>
 </html>
