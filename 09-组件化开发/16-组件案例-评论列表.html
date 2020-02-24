@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <style>
+    .user {
+      margin-right: 20px;
+    }
+
+    .contentP {
+      border-left: 1px solid #7d7d7d;
+      padding-left: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <cpn @load-comments="loadComments"></cpn>
+
+    <br>
+    <h3>评论区</h3>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="item in list" :key="item.id">
+        <span class="badge pull-left user">
+          评论人：{{item.user}}
+        </span>
+        <span class="contentP">{{item.content}}</span>
+        <i class="pull-right">{{item.ctime | dateFormat }}</i>
+      </li>
+    </ul>
+  </div>
+
+
+  <template id="cpn">
+    <div>
+      <div class="form-group">
+        <label for="">评论人：
+        </label>
+        <input type="text" class="form-control" v-model="user">
+
+      </div>
+
+      <div class="form-group">
+        <label for="">评论内容：
+        </label>
+        <textarea name="" id="" cols="30" rows="3" class="form-control" v-model="content"></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="button" value="发表评论" class="btn btn-primary  pull-right"  @click="postContent">
+      </div>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    // 全局过滤器
+    Vue.filter('dateFormat',function (dateStr, parttern="") {
+      const dt = new Date(dateStr)
+
+      // yyyy-MM-dd
+      const y = dt.getFullYear()
+      // es6新增填充方法String.prototype.padStart(填充后最大长度,填充内容)
+      const m = (dt.getMonth() + 1).toString().padStart(2,'0')
+      const d = dt.getDate().toString().padStart(2,'0')
+
+      // return y + '-' + m + '-' + d
+
+
+      // 模板字符串
+      if (parttern && parttern.toLowerCase() === 'yyyy-mm-dd') {
+        return `${y}-${m}-${d}`
+      } else {
+        const HH = dt.getHours().toString().padStart(2,'0')
+        const mm = dt.getMinutes().toString().padStart(2,'0')
+        const ss = dt.getMinutes().toString().padStart(2,'0')
+
+        return`${y}-${m}-${d} ${HH}:${mm}:${ss}`
+      }
+    })
+
+    Vue.component('cpn',{
+      template:'#cpn',
+      data () {
+        return {
+          content:'',
+          user:'',
+          ctime:new Date()
+        }
+      },
+      methods:{
+        postContent () {
+          //1.评论数据存到哪里去,存放到了localStorage中
+          //2.先组织出一个最新评论数据对象
+          //3.想办法，把第二步得到的评论对象，保持到localStorage中】
+          // 3.1 localStorage只支持存字符串数据,先调用JSON.stringify
+          // 3.2 在保存最新的评论数据之前，要先从localStorage获取到之前的评论数据(string)转换为一个数组对象，然后把最新的评论，push到这个数组
+          // 3.3 如果获取到的localStorage中的评论字符串为空，不存在，则可以返回一个'[]'让JSON.parse去转换
+          // 3.4 把最新的评论列表数组，再次调用JOSN.stringify转为数组字符串，然后调用localStorage.setItem()
+
+          var comments = {id:Date.now(), user:this.user,content:this.content,ctime:this.ctime}
+
+          // 从localStorage中获取所有评论
+          var tempList =JSON.parse(localStorage.getItem('cmts') || '[]');
+
+          tempList.unshift(comments)
+
+          // 重新保存最新的评论数据
+          localStorage.setItem('cmts',JSON.stringify(tempList))
+
+          // 清空data
+          this.user = '';
+          this.content = '';
+
+          // 子传父
+          this.$emit('load-comments')
+        }
+      }
+    })
+
+
+    const app = new Vue ({
+      el:'#app',
+      data:{
+        message:'Hello',
+        list : [
+          {id:Date.now(), user:'IronMan', content: 'I am IronMan',ctime:new Date()},
+          {id:Date.now(), user:'Thor', content: 'Son of Odin',ctime:new Date()},
+          {id:Date.now(), user:'Captain America', content: 'I can do this all day',ctime:new Date()},
+          {id:Date.now(), user:'Hulk', content: 'Puny god',ctime:new Date()},
+
+          ]
+      },
+      methods:{
+        loadComments () { //从本地 localStorage中，加载评论列表
+          var loadList = JSON.parse(localStorage.getItem('cmts') || []);
+          this.list = loadList
+        },
+        // getContent () {
+        //   this.loadComments()
+        // }
+      },
+      created () {
+        this.loadComments ()
+      }
+    })
+  </script>
+</body>
+</html>

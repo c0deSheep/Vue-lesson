@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+
+    /*2.自定义两组样式，来控制transition内部元素实现动画*/
+    /* v-enter 是进入之前，元素的其实状态，此时还没有进入*/
+    /*v-leave-to 是动画离开之后，离开的总之状态，此时，动画已经结束*/
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      /*需要位移效果就加transform*/
+      transform: translateX(150px);
+    }
+
+    /*v-enter-active 入场动画的时间段*/
+    /*v-leave-active 离场动画的时间段*/
+    .v-enter-active,
+    .v-leave-active {
+
+      transition: all 0.8s ease ;
+    }
+
+    /* 注意： 如果需要为不同的元素设置不一样的动画，在transition元素中添加name属性，并将style中的v前缀改成name的值*/
+    .animate2-enter,
+    .animate2-leave-to {
+      opacity: 0;
+      /*需要位移效果就加transform*/
+      transform: translateY(80px);
+    }
+
+    /*v-enter-active 入场动画的时间段*/
+    /*v-leave-active 离场动画的时间段*/
+    .animate2-enter-active,
+    .animate2-leave-active {
+
+      transition: all 0.8s ease ;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    {{message}}
+    <button @click="flag = !flag">button</button>
+    <!--1.使用transition元素将需要被动画控制的元素，包裹起来-->
+    <transition>
+      <h3 v-show="flag">No Pain,No Gain</h3>
+    </transition>
+
+    <hr>
+
+    <button @click="flag1 = !flag1">button2</button>
+    <!--1.使用transition元素将需要被动画控制的元素，包裹起来-->
+    <transition name="animate2">
+      <h3 v-show="flag1">No Money,No Talk</h3>
+    </transition>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue ({
+      el:'#app',
+      data:{
+        message:'Hello',
+        flag:false,
+        flag1:false
+      }
+    })
+  </script>
+</body>
+</html>

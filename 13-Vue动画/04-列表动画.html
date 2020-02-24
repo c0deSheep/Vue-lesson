@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    
+    .opera,
+    li {
+      list-style: none;
+      border: 1px dashed #000;
+      margin-top: 10px;
+      margin-right: 40px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    li:hover {
+      background:#f6f6f6;
+      transition:all 0.1s ease
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+      margin: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+
+      transition: all 0.5s ease ;
+    }
+
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      /*需要位移效果就加transform*/
+      transform: translateY(30px);
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <div class="opera">
+    <label  for="first">
+      id:
+      <input type="number" v-model="id" id="first">
+    </label>
+
+    <label for="name">
+      name:
+      <input type="text" v-model="name" id="name">
+    </label>
+
+    <label for="btn">
+      <input type="button" id="btn" @click="add" value="add">
+    </label>
+  </div>
+
+
+  <ul>
+    <!--在实现列表过度时候，如果需要过度的元素，是通过v-for循环渲染出来的，不能使用transition包裹，而是transition-group-->
+    <!--如果要为v-for循环创建的元素设置动画，必须每一个元素设置 ：key 属性-->
+    <transition-group >
+      <li v-for="item in list" :key="item.id">
+        {{item.id}} --- {{item.name}}
+      </li>
+    </transition-group>
+  </ul>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      id:'',
+      name:'',
+      message:'Hello',
+      list : [
+        {id:1, name: '岸本齐史'},
+        {id:2, name: '尾田荣一郎'},
+        {id:3, name: '鸟山明'},
+        {id:4, name: '荒木飞吕彦'},
+      ]
+    },
+    methods: {
+      add () {
+        const obj = {}
+        obj.id = this.id
+        obj.name = this.name
+        
+        if (this.id !== '') {
+          this.list.push(obj)
+        }
+        this.name = '';
+        this.id = ''
+
+      }
+    }
+  })
+</script>
+</body>
+</html>

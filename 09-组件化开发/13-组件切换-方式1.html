@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+
+  <button @click="showSon1">son1</button>
+  <button @click="showSon2">son2</button>
+
+
+  <son1  v-if="flag"></son1>
+
+  <son2  v-else="flag"></son2>
+</div>
+
+
+
+<template id="son1" >
+  <div >
+    <h3>I am Son1</h3>
+  </div>
+</template>
+
+<template id="son2">
+  <div >
+    <h3>I am Son2</h3>
+  </div>
+</template>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('son1',{
+    template:'#son1'
+  })
+
+  Vue.component('son2',{
+    template:'#son2'
+  })
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      flag:true,
+    },
+    methods:{
+      showSon1 () {
+        this.flag = true
+      },
+      showSon2 () {
+        this.flag = false
+      }
+
+
+    }
+  })
+</script>
+</body>
+</html>

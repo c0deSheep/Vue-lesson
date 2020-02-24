@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    .ball {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #204dff;
+    }
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <input type="button" value="小球掉下去" @click="dropBall" >
+  <!-- 用钩子函数动画完成半场掉落效果-->
+  <transition
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @after-enter="afterEnter">
+    <div class="ball" v-show="flag"></div>
+  </transition>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      flag : false
+    },
+    methods: {
+      dropBall () {
+        this.flag = !this.flag
+      },
+      // 注意：动画钩子函数的第一个参数：el，表示执行动画的哪个DOM元素，是原生Dom元素
+      // 可以视为document.getElementById('')方式来获取原生对象
+      beforeEnter (el) {
+        // beforeEnter 动画入场之前，动画未开始，可以在beforeEnter中设置元素开始动画之前的初始样式
+
+        // 设置小球开始动画之气那的初始位置
+        el.style.transform = 'translate(0, 0)'
+      },
+      enter (el,done) {
+        // 一定需要添加以下这句，否则没有过度动画
+        // 可以认为el.offsetWidth会强制刷新作用，但不一定是Width，只要是offset都可以
+        // el.offsetWidth
+        el.offsetHeight
+        // el.offsetLeft
+        // el.offsetTop
+
+        // enter 表示动画 开始之后的样式，这里，可以设置完成动画之后的 结束状态
+        el.style.transform = 'translate(150px, 450px)'
+        el.style.transition = 'all 1s ease'
+
+        // 如果给enter添加第二个参数的话，会立即调用afterEnter函数， done就是afterEnter的引用
+        done()
+      },
+      afterEnter (el) {
+        //动画完成后会调用这个函数
+        this.flag = !this.flag
+      }
+    }
+  })
+</script>
+</body>
+</html>

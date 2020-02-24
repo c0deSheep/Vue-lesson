@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>品牌管理列表</title>
+  <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">添加品牌</h3>
+    </div>
+    <div class="panel-body form-inline">
+      <label for="">
+        Id:
+        <!--class="form-control"为表单控件-->
+        <input type="text" class="form-control" v-model="id" @keyup.enter="add">
+      </label>
+
+      <label for="">
+        Name:
+        <input type="text" class="form-control" v-model="name" @keyup.enter="add">
+      </label>
+
+      <label for="">
+        <input value="添加" class="btn btn-primary" @click="add" />
+      </label>
+
+
+      <!--<label for="">-->
+        <!--搜索：-->
+        <!--<input type="text" value="" class="form-control"  v-model="keyWords"  v-focus v-color="'blue'"/>&lt;!&ndash;需要在指令中传入字符串使用相反引号括起,否则是变量&ndash;&gt;-->
+      <!--</label>-->
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Brand</th>
+      <th>Ctime</th>
+      <th>Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--要实现搜索功能，则v-for不能写死，通过传入方法过滤-->
+    <!--<tr v-for="item in list" :key="item.id">-->
+    <!--<tr v-for="item in searchKeywords(keyWords)" :key="item.id">-->
+    <tr v-for="item in list" :key="item.id">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ new Date()| dateFormat }}</td>
+      <td>
+        <a href="javasript:;" @click.prevent="del(item.id)">删除</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script src="./vue-resource.js"></script>
+<script>
+  // 全局过滤器
+  Vue.filter('dateFormat',function (dateStr, parttern="") {
+    const dt = new Date(dateStr)
+
+    // yyyy-MM-dd
+    const y = dt.getFullYear()
+    // es6新增填充方法String.prototype.padStart(填充后最大长度,填充内容)
+    const m = (dt.getMonth() + 1).toString().padStart(2,'0')
+    const d = dt.getDate().toString().padStart(2,'0')
+
+    // return y + '-' + m + '-' + d
+
+
+    // 模板字符串
+    if (parttern && parttern.toLowerCase() === 'yyyy-mm-dd') {
+      return `${y}-${m}-${d}`
+    } else {
+      const HH = dt.getHours().toString().padStart(2,'0')
+      const mm = dt.getMinutes().toString().padStart(2,'0')
+      const ss = dt.getMinutes().toString().padStart(2,'0')
+
+      return`${y}-${m}-${d} ${HH}:${mm}:${ss}`
+    }
+  })
+
+
+  // 如果通过全局配置了，请求数据接口的 根域名，则，在每次单独发起http 请求时，请求的url路径，应该以相对路径开头，前面不能带 ‘ / ’ ，否则不会启用
+  Vue.http.options.root = 'http://jsonplaceholder.typicode.com/'
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      id : '',
+      name : '',
+      obj : {},
+      keyWords:'',
+      list : [
+        // {id:1, name:'BMW',ctime:dateFormat(new Date())},
+        // {id:2, name:'Benz',ctime:dateFormat(new Date())},
+      ],
+    },
+    methods: {
+      // 从API中获取品牌列表
+      getAllList () {
+        // 1.因为已导入Vue-resource包，所以可以直接通过this.$http来发起网络请求
+        // 2.根据API文档，知道，获取列表时，应该发起一个 get 请求
+        // 3.this.$http.get('url').then（res => {}）
+        // 4.当通过then指定回调函数之后，在会带哦函数中，可以从服务器中获取数据
+        // 5.想判断result.status是否为0，为0则成功，可以将result.message保存到list中，不为0则弹框失败
+
+        this.$http.get('users').then(res => {
+          // if (res.data.status === 0) {
+          //   this.list = res.data.message
+          //   console.log(res.data.message)
+          // }else {
+          //   alert('fail')
+          // }
+          this.list = res.body
+          console.log(res.body)
+        })
+      },
+      add() {
+        // this.obj.id = this.id;
+        // this.obj.name = this.name;
+        // this.obj.ctime = dateFormat(new Date())
+        // if(this.obj.id !== ''){
+        //   this.list.push(this.obj)
+        //   this.obj = {};
+        //   this.id = '';
+        //   this.name = '';
+        // }
+
+        // 分析
+        // 1.需要发送一个post请求， this.$http.post
+        // 2.this.$http.post() 中 接收三个参数 ：
+        //    i.要请求的url地址  ii.要提交给服务器的数据，要以对象的形式提交服务器  iii.配置对象，要以那种表单数据类型提交，{emulateJSON:true},以普通表单格式，将数据提交给服务器
+        //  application/x-www-form-urlencoded
+        // 3.post后通过.then来设置成功回调函数
+        this.$http.get('http://liulongbin.top:3005/api/addproduct',{name:this.name},{emulateJSON:true}).then(res => {
+          if (res.status === 0) {
+            this.getAllList ()
+          }else {
+            alert('fail')
+          }
+        })
+      },
+      del (id) {
+        this.list.some( (item,i)=> {
+          if (item.id = id) {
+            this.list.splice(i,1)
+            // 在数组中some方法，如果有一个真就返回真，终止循环
+            return true
+          }
+        })
+      },
+      // searchKeywords (keyWords) {
+      //   // 因为不需要复用，所有不需要将变量放入data中
+      //   // 第一种方法
+      //   // const newList = []
+      //   // this.list.forEach(item => {
+      //   //   if (item.name.indexOf(keyWords) !== -1) {
+      //   //     newList.push(item)
+      //   //   }
+      //   // })
+      //   // return newList;
+      //
+      //  // 第二种方法
+      //  // filter会遍历数组，按条件过滤，将符合保存新数组
+      //   return  this.list.filter(item => {
+      //      //String.prototype.includes('要包含的字符串')，如果包含则返回true，否则返回false
+      //      if(item.name.includes(keyWords)) {
+      //        return item
+      //      }
+      //    })
+      // }
+    },
+    created () {
+      this.getAllList()
+    },
+    // 私有化自定义指令
+    directives:{
+      // key为自定义指令名称,使用时需要添加v-前缀
+      focus : {
+        // inserted为钩子函数,Dom插入时,后面的函数必须传入el作为参数,表示这个原生dom元素
+        inserted:function (el) {
+            //所以focus()就是原生方法
+            el.focus()
+        }
+      },
+      color : {
+        // bind的原因是因因为样式绑定到原生中,不需要插入到Dom时就可以有样式
+        // 第二个参数binding为一个对象,可以获取到传进的参数,用value
+        bind : function (el,binding) {
+          el.style.color = binding.value
+        }
+      }
+    },
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
+  function dateFormat(time) {
+    var date=new Date(time);
+    var year=date.getFullYear();
+    /* 在日期格式中，月份是从0开始的，因此要加0
+     * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+     * */
+    var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+    var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+    var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+    var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+    var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+    // 拼接
+    return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+  }
+</script>
+</body>
+</html>

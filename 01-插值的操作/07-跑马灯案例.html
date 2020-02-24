@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <h2>{{str}}</h2>
+  <button @click="lang">Move On</button>
+  <button @click="stop">Stop</button>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      str : 'a b c d e f g h i j k l m n o p q r s t u v w x y z ',
+      timer:null
+      },
+      methods: {
+        lang () {
+          clearInterval(this.timer)
+          this.timer = setInterval( ()=>{
+            //获取第一个字符
+            const head = this.str.substring(0,1);
+
+            // 获取后面所有的字符
+            const foot = this.str.substring(1);
+
+            this.str = foot + head;
+          }, 400)
+        },
+
+        stop () {
+          clearInterval(this.timer)
+          this.timer = null
+        }
+      },
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--a标签中的href="javascript:; 和事件prevent的效果一样-->
+  <a href="javascript:;" @click.prevent="variables=cpn1">cpn1</a>
+  <a href="javascript:;" @click.prevent="variables=cpn2">cpn2</a>
+
+
+  <!--vue提供了component，来展示对应名称的组件-->
+  <!--component标签，绑定一个is属性等于需要插入的组件的组件名-->
+  <!--注意：这个is绑定的组件名对应的是一个组件名字符串，所以要加引号，否则会当成变量在父组件中寻找-->
+  <component :is="variables"></component>
+
+</div>
+
+<!-------------------组件模板------------------->
+<template id="cpn1">
+  <div>
+    <h1>{{cpnMessage}}</h1>
+  </div>
+</template>
+
+<template id="cpn2">
+  <div>
+    <h1>{{cpnMessage}}</h1>
+  </div>
+</template>
+
+<!-------------------------------------------->
+
+
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('cpn1',{
+    template:'#cpn1',
+    data () {
+      return {
+        cpnMessage : 'i am  component1'
+      }
+    }
+  })
+
+  Vue.component('cpn2',{
+    template:'#cpn2',
+    data () {
+      return {
+        cpnMessage : 'i am component2'
+      }
+    }
+  })
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      variables:'',
+      cpn1:'cpn1',
+      cpn2:'cpn2',
+    }
+  })
+</script>
+</body>
+</html>

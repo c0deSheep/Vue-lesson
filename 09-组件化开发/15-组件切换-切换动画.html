@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      transform:translateX(150px);
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: all 0.4s ease ;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--a标签中的href="javascript:; 和事件prevent的效果一样-->
+  <a href="javascript:;" @click.prevent="variables=cpn1">cpn1</a>
+  <a href="javascript:;" @click.prevent="variables=cpn2">cpn2</a>
+
+
+  <!--通过mode属性，设置组件切换时候的模式-->
+  <transition mode="out-in">
+    <component :is="variables"></component>
+  </transition>
+
+</div>
+
+<!-------------------组件模板------------------->
+<template id="cpn1">
+  <div>
+    <h1>{{cpnMessage}}</h1>
+  </div>
+</template>
+
+<template id="cpn2">
+  <div>
+    <h1>{{cpnMessage}}</h1>
+  </div>
+</template>
+
+<!-------------------------------------------->
+
+
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('cpn1',{
+    template:'#cpn1',
+    data () {
+      return {
+        cpnMessage : 'i am  component1'
+      }
+    }
+  })
+
+  Vue.component('cpn2',{
+    template:'#cpn2',
+    data () {
+      return {
+        cpnMessage : 'i am component2'
+      }
+    }
+  })
+
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello',
+      variables:'',
+      cpn1:'cpn1',
+      cpn2:'cpn2',
+    }
+  })
+</script>
+</body>
+</html>

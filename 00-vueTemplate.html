@@ -9,15 +9,77 @@
 
   <div id="app">
     {{message}}
+    <br>
+    <br>
+
+    <cpn :to-son-messages="propsContent"  @func="show" @sent_event="showSonEmitMessage"></cpn>
+
+
+    <h3>emitMessage: <i>{{receiptMessage}}</i></h3>
   </div>
 
+
+  <!--------template html------------>
+  <template id="cpn">
+    <div>
+      <hr>
+      this son part
+      <br>
+      <button @click="sendToFather(emitMessage)">send to father</button>
+      <br>
+      <i>{{emitMessage}}</i>
+      <h1>props1: {{toSonMessages}}</h1>
+
+
+      <button @click="myClick(value)">这是子组件的按钮，点击，触发父组件传递过滤的func方法</button>
+
+      <hr>
+    </div>
+  </template>
+  <!--------------------------------->
 
   <script src="js/vue.js"></script>
   <script>
     const app = new Vue ({
       el:'#app',
       data:{
-        message:'Hello'
+        message:'Hello',
+        propsContent:'When you see it , proves that son gets the father props',
+        receiptMessage : '',
+      },
+      components:{
+        'cpn' : {
+          template: '#cpn',
+          props:{
+            toSonMessages:{
+              type:String,
+            },
+          },
+          data() {
+            return {
+              emitMessage :'i am son message, i need to be sent to my father',
+              value:'子传父成功'
+            }
+          },
+          methods:{
+            sendToFather (emitMessage) {
+              this.$emit('sent_event',emitMessage)
+            },
+            myClick (value) {
+              this.$emit('func',value)
+            }
+          }
+
+        },
+      },
+      methods:{
+        showSonEmitMessage (message) {
+          // console.log(this.receiptMessage)
+           this.receiptMessage= message
+        },
+        show (value) {
+          console.log(value)
+        }
       }
 
     })

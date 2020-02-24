@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--1.引入css-->
+  <link rel="stylesheet" href="./animate.css">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    {{message}}
+    <button @click="flag = !flag">button</button>
+
+    <!--2.在transition上使用enter-active-class  leave-active-class 添加需要的类-->
+    <!--<transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">-->
+      <!--<h3 v-show="flag">No Pain,No Gain</h3>-->
+    <!--</transition>-->
+
+    <!--2.或者将重复的类放入里面包裹的元素中-->
+    <!--<transition enter-active-class="bounceIn" leave-active-class="bounceOut">-->
+      <!--<h3 v-show="flag" class="animated ">No Pain,No Gain</h3>-->
+    <!--</transition>-->
+
+    <!--2.同时也可以添加动画统一完成时间 :duration-->
+    <!--<transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="1400">-->
+    <!--<h3 v-show="flag">No Pain,No Gain</h3>-->
+    <!--</transition>-->
+
+    <!--2.也可以分开进入和离开的完成时间用对象-->
+    <transition
+      enter-active-class="animated bounceIn"
+      leave-active-class="animated bounceOut"
+      :duration="{
+        enter : 400,
+        leave : 1400
+      }">
+      <h3 v-show="flag">No Pain,No Gain</h3>
+    </transition>
+    <hr>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue ({
+      el:'#app',
+      data:{
+        message:'Hello',
+        flag:false,
+        flag1:false
+      }
+    })
+  </script>
+</body>
+</html>
